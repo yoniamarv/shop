@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Customers</title>
+</head>
+<body>
+
+  {% for customer in customers %}
+    <h3>{{ customer.first_name }} - {{ customer.last_name }}</h3>
+    <a href="{% url 'shop_app:customer' customer.id %}">{{ customer.email }}</a>
+  {% endfor %}
+
+</body>
+</html>

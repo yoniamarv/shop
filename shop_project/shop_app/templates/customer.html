@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+	<title>{{ customer.first_name }} {{ customer.last_name }}</title>
+</head>
+<body>
+	<h1>{{ customer.first_name }} {{ customer.last_name }}</h1>
+	<p>{{ customer.email }}</p>
+	<img src="http://{{ request.get_host }}/{{ customer.profile_picture.image }}">
+</body>
+</html>
