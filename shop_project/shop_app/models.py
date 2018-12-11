@@ -9,8 +9,8 @@ class Product(models.Model):
   def __str__(self):
     return self.name
 
-  # def __repr__(self):
-  #   return "<Product {}>".format(self.name)
+  def __repr__(self):
+    return "<Product {}>".format(self.name)
 
 
 class Customer(models.Model):
@@ -25,3 +25,18 @@ class Customer(models.Model):
 
   def __repr__(self):
     return "<Customer {}>".format(self.email)
+
+class Maillot(models.Model):
+  name = models.CharField(max_length=264)
+  price = models.DecimalField(max_digits=5, decimal_places=2)
+  description = models.TextField()
+  image = models.ImageField(default='static/images/images_maillots/maillotdefault.jpg', upload_to='static/images/images_maillots/')
+
+  def __str__(self):
+    return self.name
+
+  def __repr__(self):
+    return "<Maillot {}>".format(self.name)
+
+
+  
