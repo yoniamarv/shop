@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste des maillots</title>
+</head>
+<body>
+	<h1>Liste des maillots</h1>
+    {% for maillot in maillots %}
+   <h3><a href="{% url 'shop_app:maillot' maillot.id %}">{{ maillot.name }} </a></h3>
+
+ {% endfor %}
+</body>
+</html>

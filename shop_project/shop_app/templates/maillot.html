@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ maillot.name }}</title>
+</head>
+<body>
+
+  	<h1>{{ maillot.name }}</h1>
+    <h3>{{ maillot.name }} - ${{ maillot.price }}</h3>
+    <p>{{ maillot.description }}</p>
+    <img src="http://{{ request.get_host }}/{{ maillot.image }}">
+
+</body>
+</html>
