@@ -30,7 +30,6 @@ def maillot(request, maillot):
 	maillot = Maillot.objects.get(id=maillot)
 	return render(request, 'maillot.html', context={ 'maillot': maillot })
 
-
 def comment_form(request, product_id):
 	if request.method =='POST':
 		username = request.POST.get('username')
@@ -38,6 +37,6 @@ def comment_form(request, product_id):
 		product = Product.objects.get(id= product_id)
 		date = datetime.datetime.now()
 		comment = Comment.objects.get_or_create(username=username, text=text, product=product, date=date)
-		
 
 	return render(request, 'comment_form.html', context={ 'comment_form': CommentForm() })
+

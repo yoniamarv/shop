@@ -49,4 +49,3 @@ class Maillot(models.Model):
 
   def __repr__(self):
     return "<Maillot {}>".format(self.name)
-  
