@@ -1,0 +1,27 @@
+#creer une branche
+git checkout -b newBranch
+
+#verifier si elle est dans le terminal
+git branch
+
+#verifier si il y a eu des modification effectuees
+git status
+
+#pour effectuer un commit
+git add .
+
+#ensuite
+git commit -m "blabla"
+
+#mettre en ligne sur github de la branch
+git push
+
+#en general fatal error..
+-->copier la command du terminal qu'il nous propose ("git.....")
+
+#apres aller sur github:
+	--> "<> aller ds code"
+	--> "merge" (effectue une fusion de la branch au master)
+	!!! verifier qu'il y a internet sinon CRASHHHH !!!
+
+

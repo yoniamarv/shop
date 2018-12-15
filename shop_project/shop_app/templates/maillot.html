@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-
 <html>
 	<head>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	  <title>Customers</title>
+	  <title>{{ maillot.name }}</title>
 	</head>
 	<body>
 		<div class="container">
@@ -20,14 +19,14 @@
 				<div class="col-sm-offset-3 col-sm-6">
 					<div class="offset-3">
 
-					  {% for customer in customers %}
-					    <h3>{{ customer.first_name }} - {{ customer.last_name }}</h3>
-					    <a href="{% url 'shop_app:customer' customer.id %}">{{ customer.email }}</a>
-					  {% endfor %}
-				  	</div>
-			  	</div>
-		  	</div>
-	  	</div>
+					  	<h1>{{ maillot.name }}</h1>
+					    <h3>{{ maillot.name }} - ${{ maillot.price }}</h3>
+					    <p>{{ maillot.description }}</p>
+					    <img src="http://{{ request.get_host }}/{{ maillot.image }}">
+				    </div>
+			    </div>
+		    </div>
+	    </div>
 
-	</body>
+</body>
 </html>
