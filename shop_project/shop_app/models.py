@@ -4,7 +4,7 @@ class Product(models.Model):
   name = models.CharField(max_length=264)
   price = models.DecimalField(max_digits=5, decimal_places=2)
   description = models.TextField()
-  image = models.ImageField(default='static/images/image.png', upload_to='static/images/')
+  shoes = models.ImageField(default='static/images/image.jpeg', upload_to='static/images/shoes/')
 
   def __str__(self):
     return self.name
@@ -26,17 +26,26 @@ class Customer(models.Model):
   def __repr__(self):
     return "<Customer {}>".format(self.email)
 
+class Comment(models.Model):
+  username = models.CharField(max_length=264)
+  text = models.TextField()
+  date = models.DateField()
+  product = models.ForeignKey(Product , on_delete=models.CASCADE)
+
+  def __str__(self):
+    return self.username
+
+  def __repr__(self):
+    return "<Comment {}>".format(self.username)
+
 class Maillot(models.Model):
   name = models.CharField(max_length=264)
   price = models.DecimalField(max_digits=5, decimal_places=2)
   description = models.TextField()
-  image = models.ImageField(default='static/images/images_maillots/maillotdefault.jpg', upload_to='static/images/images_maillots/')
+  maillot_picture = models.ImageField(default='static/images/maillot.jpg', upload_to='static/images/maillot_pictures/')
 
   def __str__(self):
     return self.name
 
   def __repr__(self):
     return "<Maillot {}>".format(self.name)
-
-
-  

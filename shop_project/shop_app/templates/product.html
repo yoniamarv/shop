@@ -1,16 +1,58 @@
 <!DOCTYPE html>
 {% load staticfiles %}
 <html>
-<head>
-  <title>{{ product.name }}</title>
-</head>
-<body>
+	<head>
+  		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	  <title>{{ product.name }}</title>
+	  <meta charset="utf-8">
+	</head>
+	<body>
+		<div class="container">
+			<nav class="navbar navbar-light bg-secondary">
+	      		<a class="navbar-brand text-light" href="/"> 
+	      			<i class="fab fa-spotify"></i> 
+	        		Shop Store
+	      		</a>
+	      		<form class="form-inline">
+	        		<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+	        		<button class="btn btn-outline-light my-2 my-sm-0 text-light" type="submit">Search</button>
+	      		</form>
+	    	</nav>
+			<div class="row mt-2 ml-1">
+				<h1 class="product-name">{{ product.name }}</h1>
+			</div>
 
-  <h1>Product Details</h1>
-  <img src="http://{{ request.get_host }}/{{ product.image }}">
-  <h3>Name: {{ product.name }}</h3>
-  <h3>Price: ${{ product.price }}</h3>
-  <h3>Description: {{ product.description }}</h3>
+			<div class="row">  
+				<div class="col-sm ">
+					<img src="http://{{ request.get_host }}/{{ product.shoes }}">
+				</div>
 
-</body>
+				<div class="col-sm">
+	        		<h3>Product details</h3>
+	        		
+				  	<h4>${{ product.price }}</h4>
+				  	<h4>{{ product.description }}</h4>
+				  	<button type="button" class="btn btn-lg btn-warning w-100 text-light" disabled>
+	  				<i class="fas fa-shopping-cart "></i>
+	  				Buy Now
+					</button>
+
+
+					<ul class="mt-5">  
+				  	{%  for comment in comments %}
+				  		<li class="list-unstyled">
+					  	<h1> Comments </h1>
+					  	{{ comment.date }}
+					  	<h3>{{ comment.username }}</h3>
+					  	<p>{{ comment.text }}</p>
+					  	</li>
+				  	{% endfor %}
+				  	</ul>
+				
+			  	</div>
+		  	</div>
+	  	</div>
+
+	</body>
 </html>
