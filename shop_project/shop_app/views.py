@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from shop_app.models import Product, Customer, Comment 
+from shop_app.models import Product, Customer, Comment, Maillot 
 from shop_app.forms import CommentForm
 import datetime
 
@@ -21,6 +21,15 @@ def customers(request):
 def customer(request, customer_id):
 	customer = Customer.objects.get(id=customer_id)
 	return render(request, 'customer.html', context={ 'customer': customer })
+
+def maillots(request):
+	customers = Customer.objects.all()[:20]
+	return render(request, 'maillots.html', context={ 'maillots': maillots })
+
+def maillot(request, maillot):
+	maillot = Maillot.objects.get(id=maillot)
+	return render(request, 'maillot.html', context={ 'maillot': maillot })
+
 
 def comment_form(request, product_id):
 	if request.method =='POST':

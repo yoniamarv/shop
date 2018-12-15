@@ -37,3 +37,16 @@ class Comment(models.Model):
 
   def __repr__(self):
     return "<Comment {}>".format(self.username)
+
+class Maillot(models.Model):
+  name = models.CharField(max_length=264)
+  price = models.DecimalField(max_digits=5, decimal_places=2)
+  description = models.TextField()
+  maillot_picture = models.ImageField(default='static/images/maillot.jpg', upload_to='static/images/maillot_pictures/')
+
+  def __str__(self):
+    return self.name
+
+  def __repr__(self):
+    return "<Maillot {}>".format(self.name)
+  
