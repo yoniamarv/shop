@@ -6,7 +6,7 @@ class CommentForm(forms.ModelForm):
 	class Meta:
 		model 	= Comment
 		fields 	= ['username', 'text']
-		Widgests = {
+		Widgets = {
 			'username': forms.TextInput(attrs={
 				'id': 'comment-username',
 				'placeholder': 'username',
