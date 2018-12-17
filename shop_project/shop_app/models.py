@@ -26,6 +26,7 @@ class Customer(models.Model):
   def __repr__(self):
     return "<Customer {}>".format(self.email)
 
+
 class Maillot(models.Model):
   name = models.CharField(max_length=264)
   price = models.DecimalField(max_digits=5, decimal_places=2)
@@ -39,6 +40,7 @@ class Maillot(models.Model):
   def __repr__(self):
     return "<Maillot {}>".format(self.name)
 
+
 class Comment(models.Model):
   username = models.CharField(max_length=264)
   text = models.TextField()
@@ -51,6 +53,7 @@ class Comment(models.Model):
   def __repr__(self):
     return "<Comment {}>".format(self.username)
 
+
 class Contact(models.Model):
   subject = models.CharField(max_length=264)
   email = models.EmailField(max_length=264)
@@ -62,4 +65,19 @@ class Contact(models.Model):
 
   def __repr__(self):
     return "<Contact {}>".format(self.email)
+
+
+class Question(models.Model):
+  title = models.CharField(max_length=264)
+  text = models.TextField(max_length=264)
+  username = models.CharField(max_length=264)
+  hello = models.CharField(max_length=264, default="")
+  product = models.ForeignKey(Product , on_delete=models.CASCADE)
+
+  def __str__(self):
+    return self.title
+
+  def __repr__(self):
+    return "<Question {}>".format(self.title)
+
 

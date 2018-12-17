@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from shop_app.models import Product, Customer, Comment, Maillot 
-from shop_app.forms import CommentForm
+from shop_app.models import Product, Customer, Comment, Maillot, Question
+from shop_app.forms import CommentForm, QuestionForm
 import datetime
 
 
@@ -39,4 +39,15 @@ def comment_form(request, product_id):
 		comment = Comment.objects.get_or_create(username=username, text=text, product=product, date=date)
 
 	return render(request, 'comment_form.html', context={ 'comment_form': CommentForm() })
+
+def question_form(request, product_id):
+	if request.method =='POST':
+		username = request.POST.get('username')
+		text = request.POST.get('text')
+		product = Product.objects.get(id= product_id)
+		title = request.POST.get('title')
+		question = Question.objects.get_or_create(username=username, text=text, product=product, title=title)
+
+	return render(request, 'question_form.html', context={ 'question': QuestionForm() })
+
 

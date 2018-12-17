@@ -1,5 +1,5 @@
 from django import forms
-from shop_app.models import Comment
+from shop_app.models import Comment, Question
 
 
 class CommentForm(forms.ModelForm):
@@ -18,3 +18,27 @@ class CommentForm(forms.ModelForm):
 				'required': True
 			}),
 		} 
+
+class QuestionForm(forms.ModelForm):
+	class Meta:
+		model 	= Question
+		fields 	= ['title', 'text', 'username']
+		Widgets = {
+			'title': forms.TextInput(attrs={
+				'id': 'question-title',
+				'placeholder': 'title',
+				'required': True
+			}),
+			'text': forms.Textarea(attrs={
+				'id': 'question-text',
+				'placeholder': 'Quelle est votre question...',
+				'required': True
+			}),
+			'username': forms.TextInput(attrs={
+				'id': 'question-username',
+				'placeholder': 'username',
+				'required': True
+			}),
+		} 
+		
+

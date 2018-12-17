@@ -2,8 +2,8 @@ from django.db import models
 
 class Contact(models.Model):
   subject = models.CharField(max_length=264)
-  email = models.EmailField(max_length=264)
-  text = models.TextField(max_length=264)
+  email = models.EmailField()
+  text = models.TextField()
   
 
   def __str__(self):
@@ -11,3 +11,4 @@ class Contact(models.Model):
 
   def __repr__(self):
     return "<Contact {}>".format(self.subject)
+

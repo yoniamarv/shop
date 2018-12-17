@@ -42,13 +42,23 @@
 					<ul class="mt-5">  
 				  	{%  for comment in comments %}
 				  		<li class="list-unstyled">
-					  	<h1> Comments </h1>
-					  	{{ comment.date }}
-					  	<h3>{{ comment.username }}</h3>
-					  	<p>{{ comment.text }}</p>
+						  	<h1> Comments </h1>
+						  	{{ comment.date }}
+						  	<h3>{{ comment.username }}</h3>
+						  	<p>{{ comment.text }}</p>
 					  	</li>
 				  	{% endfor %}
 				  	</ul>
+
+				  	<ul class="mt-5">  
+			  		{% for question in questions %}
+			  			<li class="list-unstyled">
+			  				<h1>{{ question.title }}}</h1>
+						  	<h3>{{ question.username }}</h3>
+						  	<p>{{ question.text }}</p>
+			  			</li>
+		  			{% endfor %}
+		  			</ul>
 				
 			  	</div>
 		  	</div>
