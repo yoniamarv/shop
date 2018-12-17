@@ -33,6 +33,13 @@ def generate_product():
 		product = Product.objects.get_or_create(name=brand, price=price, description=fakegen.text(max_nb_chars=800))[0]
 		print(product) 
 
+def generate_maillots():
+    for maillot in range(0,150):
+        maillotprice = random.randint(79,499)
+        maillot_brand = generate_maillot_brand()
+        maillot = Maillot.objects.get_or_create(name=maillot_brand, description =fakegen.text(max_nb_chars=400),price=maillotprice )
+        print(maillot)
+
 
 def populate():
 	# generate_customers()

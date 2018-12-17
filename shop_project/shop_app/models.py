@@ -61,6 +61,5 @@ class Contact(models.Model):
     return self.email
 
   def __repr__(self):
-    return "<Customer {}>".format(self.email)
+    return "<Contact {}>".format(self.email)
 
-  
