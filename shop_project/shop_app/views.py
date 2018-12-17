@@ -23,7 +23,7 @@ def customer(request, customer_id):
 	return render(request, 'customer.html', context={ 'customer': customer })
 
 def maillots(request):
-	customers = Customer.objects.all()[:20]
+	maillots = Maillot.objects.all()[:20]
 	return render(request, 'maillots.html', context={ 'maillots': maillots })
 
 def maillot(request, maillot):
