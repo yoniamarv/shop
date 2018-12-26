@@ -9,16 +9,7 @@
 	</head>
 	<body>
 		<div class="container">
-			<nav class="navbar navbar-light bg-secondary">
-	      		<a class="navbar-brand text-light" href="/"> 
-	      			<i class="fab fa-spotify"></i> 
-	        		Shop Store
-	      		</a>
-	      		<form class="form-inline">
-	        		<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-	        		<button class="btn btn-outline-light my-2 my-sm-0 text-light" type="submit">Search</button>
-	      		</form>
-	    	</nav>
+			{% include "navbar.html" %}
 			<div class="row mt-2 ml-1">
 				<h1 class="product-name">{{ product.name }}</h1>
 			</div>
@@ -30,39 +21,57 @@
 
 				<div class="col-sm">
 	        		<h3>Product details</h3>
-	        		
-				  	<h4>${{ product.price }}</h4>
-				  	<h4>{{ product.description }}</h4>
+
+    				<h5>Name: {{ product.name }}</h5>
+				  	<h5>Price: ${{ product.price }}</h5>
+				  	<h5>Description: {{ product.description }}</h5>
 				  	<button type="button" class="btn btn-lg btn-warning w-100 text-light" disabled>
 	  				<i class="fas fa-shopping-cart "></i>
 	  				Buy Now
 					</button>
 
 
-					<ul class="mt-5">  
-				  	{%  for comment in comments %}
-				  		<li class="list-unstyled">
-						  	<h1> Comments </h1>
-						  	{{ comment.date }}
-						  	<h3>{{ comment.username }}</h3>
-						  	<p>{{ comment.text }}</p>
-					  	</li>
-				  	{% endfor %}
-				  	</ul>
+					<div class="mt-5">  
+				  	 	<h3>Comments</h3>
+  						{% for comment in comments %}
+  							<hr>
+  							<div style="background: lightgray;">
+    							<h5>{{ comment.comment.username }}</h5>
+    							<p>{{ comment.comment.text }}</p>
+							</div>
+							<h4>Comment Responses: </h2>
+							<ul>
+							{% for comment_response in comment.comments_responses %}
+								<li>{{ comment_response.username }}: {{ comment_response.text }}</li>
+							{% endfor %}
+								<a href="{% url 'shop_app:comment_response_form' comment.comment.id %}">Write a comment response...</a>
+							</ul>
+						{% endfor %}
+					</div>
+					<div class="mt-5">
 
-				  	<ul class="mt-5">  
-			  		{% for question in questions %}
-			  			<li class="list-unstyled">
-			  				<h1>{{ question.title }}}</h1>
-						  	<h3>{{ question.username }}</h3>
-						  	<p>{{ question.text }}</p>
-			  			</li>
-		  			{% endfor %}
-		  			</ul>
-				
+  						
+  						<hr>
+  						<h3>Questions</h3>
+  						{% for question in questions %}
+    						<hr>
+    						<div style="background: lightgray;">
+      							<h5>{{ question.question.username }}</h5>
+      							<h5>{{ question.question.title }}</h5>
+      							<p>{{ question.question.text }}</p>
+      							<br>
+    						</div>
+    						<h4>Responses: </h4>
+    						<ul>
+    							{% for response in question.responses %}
+      								<li>{{ response.username }}: {{ response.text }}</li>
+    							{% endfor %}
+    							<a href="{% url 'shop_app:response_form' question.question.id %}">Write a response...</a>
+    						</ul>
+  						{% endfor %}
+  					</div>
 			  	</div>
 		  	</div>
 	  	</div>
-
 	</body>
 </html>

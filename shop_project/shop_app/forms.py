@@ -1,5 +1,5 @@
 from django import forms
-from shop_app.models import Comment, Question
+from shop_app.models import Comment, Question, Response, CommentResponse
 
 
 class CommentForm(forms.ModelForm):
@@ -40,5 +40,44 @@ class QuestionForm(forms.ModelForm):
 				'required': True
 			}),
 		} 
+
+class ResponseForm(forms.ModelForm):
+	class Meta:
+		model 	= Response
+		fields 	= ['username', 'text']
+		Widgets = {
+			'username': forms.TextInput(attrs={
+				'id': 'response-username',
+				'placeholder': 'username',
+				'required': True
+			}),
+			'text': forms.Textarea(attrs={
+				'id': 'response-text',
+				'placeholder': 'Quelle est votre reponse...',
+				'required': True
+			}),
+			
+		}
+
+class CommentResponseForm(forms.ModelForm):
+	class Meta:
+		model 	= CommentResponse
+		fields 	= ['username', 'text']
+		Widgets = {
+			'username': forms.TextInput(attrs={
+				'id': 'comment-response-username',
+				'placeholder': 'username',
+				'required': True
+			}),
+			'text': forms.Textarea(attrs={
+				'id': 'comment-response-text',
+				'placeholder': 'Laisse un commentaire sur cette reponse...',
+				'required': True
+			}),
+			
+		}
+
+
 		
+
 

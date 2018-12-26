@@ -4,19 +4,25 @@
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	  <title>Home Page</title>
+	  <script type="text/javascript">
+		  function test()
+		  {
+			var object = document.getElementById('aa');
+
+			var url = "{% url 'shop_app:search' value=1111 %}".replace("1111",object.value.toString());
+			
+
+			document.location.href = url;
+		  }
+	  </script>
 	</head>
-	<body>
-		<div class="container">
-			<nav class="navbar navbar-light bg-secondary">
-	      		<a class="navbar-brand text-light" href="/">
-	      		<i class="fab fa-spotify"></i>  
-	        	Shop Store
-	      		</a>
-	      		<form class="form-inline">
-	        		<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-	        		<button class="btn btn-outline-light my-2 my-sm-0 text-light" type="submit">Search</button>
-	      		</form>
-	    	</nav>
+	<body onkeypress="if(event.keyCode == 13){ test(); }">
+		<div class="container" >
+			
+			<h1>Product List</h1>
+			
+			{% include "navbar.html" %}
+
 			<div class="row">
 				{% for product in products %}
 				<div class="col-12 col-sm-6 col-md-4 col-lg-3">

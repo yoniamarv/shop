@@ -32,7 +32,6 @@ class Maillot(models.Model):
   price = models.DecimalField(max_digits=5, decimal_places=2)
   description = models.TextField()
   maillot_picture = models.ImageField(default='static/images/maillot.jpg', upload_to='static/images/maillot_pictures/')
-  test = models.TextField()
 
   def __str__(self):
     return self.name
@@ -71,7 +70,6 @@ class Question(models.Model):
   title = models.CharField(max_length=264)
   text = models.TextField(max_length=264)
   username = models.CharField(max_length=264)
-  hello = models.CharField(max_length=264, default="")
   product = models.ForeignKey(Product , on_delete=models.CASCADE)
 
   def __str__(self):
@@ -80,4 +78,24 @@ class Question(models.Model):
   def __repr__(self):
     return "<Question {}>".format(self.title)
 
+class Response(models.Model):
+  username = models.CharField(max_length=264)
+  text = models.TextField(max_length=264)
+  question = models.ForeignKey(Question , on_delete=models.CASCADE)
 
+  def __str__(self):
+    return self.username
+
+  def __repr__(self):
+    return "<Response {}>".format(self.username)
+
+class CommentResponse(models.Model):
+  username = models.CharField(max_length=264)
+  text = models.TextField(max_length=264)
+  comment = models.ForeignKey(Comment , on_delete=models.CASCADE)
+
+  def __str__(self):
+    return self.username
+
+  def __repr__(self):
+    return "<CommentResponse {}>".format(self.username)

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	    <title>Signup</title>
+	</head>
+	<body>
+		<div class="container">
+			<nav class="navbar navbar-light bg-secondary">
+	      		<a class="navbar-brand text-light" href="/"> 
+	        	Sign up
+	      		</a>
+	      		<form class="form-inline">
+	        		<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+	        		<button class="btn btn-outline-light my-2 my-sm-0 text-light" type="submit">Search</button>
+	      		</form>
+	    	</nav>
+			<div class="row">
+				<div class="col-sm-offset-3 col-sm-6">
+					<div class="offset-3">
+						<h1>Signup</h1>
+						<form action="" method="POST">
+							{{ signup_form.as_p }}
+							{% csrf_token %}
+							<input type="submit" name="submit" value="get in touch">
+						</form>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</body>
+</html>
