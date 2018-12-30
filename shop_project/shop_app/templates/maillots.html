@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		<div class="container">
-			{% include "navbar.html" %}
+			{% include "partials/navbar.html" %}
 		<div class="row">
 			<div class="col-sm-offset-3 col-sm-6">
 				<div class="offset-3">
@@ -16,6 +16,6 @@
 				 	{% endfor %}
 			 	</div>
 		 	</div>
-	 	</div>
-	</body>
-</html>
+		 </div>
+		 {% include "partials/footer.html" %}
+	
