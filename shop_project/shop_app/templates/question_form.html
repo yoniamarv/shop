@@ -6,19 +6,20 @@
 	</head>
 	<body>
 		<div class="container">
-			{% include "navbar.html" %}
+			{% include "parials/navbar.html" %}
 			<div class="row">
 				<div class="col-sm-offset-3 col-sm-6">
 					<div class="offset-3">
 						<h1>Quelle est votre question ?</h1>
+						{% if request.user.is_authenticated %}
 						<form action="" method="POST">
 							{{ question_form.as_p }}
 							{% csrf_token %}
 							<input type="submit" name="submit" value="send question">
 						</form>
+						{% endif %}
 					</div>
 				</div>
 			</div>	
 		</div>
-	</body>
-</html>
+		{% include "partials/footer.html" %}

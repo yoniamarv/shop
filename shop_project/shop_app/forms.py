@@ -1,17 +1,13 @@
 from django import forms
+from django.contrib.auth.models import User
 from shop_app.models import Comment, Question, Response, CommentResponse
 
 
 class CommentForm(forms.ModelForm):
 	class Meta:
 		model 	= Comment
-		fields 	= ['username', 'text']
+		fields 	= ['text']
 		Widgets = {
-			'username': forms.TextInput(attrs={
-				'id': 'comment-username',
-				'placeholder': 'username',
-				'required': True
-			}),
 			'text': forms.Textarea(attrs={
 				'id': 'comment-text',
 				'placeholder': 'Write a comment here...',
