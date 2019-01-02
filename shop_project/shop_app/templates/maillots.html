@@ -5,7 +5,7 @@
 	    <title>Liste des maillots</title>
 	</head>
 	<body>
-		
+
 		<div class="container">
 			{% include "partials/navbar.html" %}
 		<div class="row">
@@ -15,7 +15,8 @@
 				    {% for maillot in maillots %}
 				   <h3><a href="{% url 'shop_app:maillot' maillot.id %}">{{ maillot.name }} </a></h3>
 				 	{% endfor %}
-			 	</div>
+				 </div>
+				 
 		 	</div>
 		 </div>
 		 {% include "partials/footer.html" %}
