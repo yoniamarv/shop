@@ -15,7 +15,7 @@
 			</div>
 
 			<div class="row">  
-				<div class="col-sm ">
+				<div class="col-sm ">click
 					<img src="http://{{ request.get_host }}/{{ product.shoes }}">
 				</div>
 
@@ -31,7 +31,10 @@
 					</button>
 
 
-					<div class="mt-5">  
+					{% for comment in comments %}
+  							<hr>
+  							<div style="background: lightgray;">
+    							<h5>{{ <div class="mt-5">  
 				  	 	<h3>Comments</h3>
   						{% for comment in comments %}
   							<hr>
